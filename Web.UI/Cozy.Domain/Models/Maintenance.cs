@@ -12,6 +12,9 @@ namespace Cozy.Domain.Models
         public string Description { get; set; }
 
         public int HomeId { get; set; }
+        public Home Home { get; set; }
+
         public string TenantId { get; set; }
+        public Tenant Tenant { get; set; }
     }
 }
