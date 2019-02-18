@@ -13,7 +13,18 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#line 1 "C:\Users\forre\Desktop\ACACozy\Web.UI\Web.UI\Views\_ViewImports.cshtml"
+using Cozy.Domain.Models;
+
+#line default
+#line hidden
+#line 2 "C:\Users\forre\Desktop\ACACozy\Web.UI\Web.UI\Views\_ViewImports.cshtml"
+using Web.UI.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"52d90611a2bf7fdca6cabe2d5db0a904793c40dc", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

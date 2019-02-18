@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Cozy.Data.Context;
+using Cozy.Data.Implementation.EFCore;
+using Cozy.Data.Implementation.Mock;
+using Cozy.Data.Interfaces;
+using Cozy.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Web.UI
@@ -17,11 +15,12 @@ namespace Web.UI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //bad way of adding connection String
-            //TODO: FIX IT LATER.
-            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=cozy;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            services.AddDbContext<CozyDbContext>(options => options.UseSqlServer(connectionString));
+            //Repository Layer injection
 
+            GetDependencyResolvedForRepositoryLayer(services);
+
+            //Service Layer injection
+            GetDependencyResolvedForServiceLayer(services);
 
 
             services.AddMvc();
@@ -42,6 +41,18 @@ namespace Web.UI
             //Default Controller: HomeController
             //Default View: Index
             //Home/Index/id
+        }
+
+        private void GetDependencyResolvedForRepositoryLayer(IServiceCollection services)
+        {
+            services.AddScoped<IHomeRepository, MockHomeRepository>();
+            services.AddScoped<ILeaseRepository, MockLeaseRepository>();
+        }
+
+        private void GetDependencyResolvedForServiceLayer(IServiceCollection services)
+        {
+            services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<ILeaseService, LeaseService>();
         }
     }
 }

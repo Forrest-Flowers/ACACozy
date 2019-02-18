@@ -1,4 +1,6 @@
 C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\bin\Debug\netcoreapp2.1\Cozy.Data.deps.json
+C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\bin\Debug\netcoreapp2.1\Cozy.Data.runtimeconfig.json
+C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\bin\Debug\netcoreapp2.1\Cozy.Data.runtimeconfig.dev.json
 C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\bin\Debug\netcoreapp2.1\Cozy.Data.dll
 C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\bin\Debug\netcoreapp2.1\Cozy.Data.pdb
 C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\bin\Debug\netcoreapp2.1\Cozy.Domain.dll
@@ -10,5 +12,3 @@ C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\obj\Debug\netcoreapp2.1\Cozy.Dat
 C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\obj\Debug\netcoreapp2.1\Cozy.Data.csproj.CopyComplete
 C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\obj\Debug\netcoreapp2.1\Cozy.Data.dll
 C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\obj\Debug\netcoreapp2.1\Cozy.Data.pdb
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\bin\Debug\netcoreapp2.1\Cozy.Data.runtimeconfig.json
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Data\bin\Debug\netcoreapp2.1\Cozy.Data.runtimeconfig.dev.json

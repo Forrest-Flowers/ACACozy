@@ -1,7 +1,9 @@
-﻿
+﻿@model Home
 @{
     ViewData["Title"] = "Index";
 }
 
 <h2>Index</h2>
-
+<div>
+    @Model.Id  - @Model.Address, @Model.City
+</div>

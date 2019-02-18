@@ -93,13 +93,15 @@ namespace Cozy.Data.Migrations
 
                     b.Property<int>("HomeId");
 
-                    b.Property<int>("Status");
+                    b.Property<int>("MaintenanceStatusId");
 
                     b.Property<string>("TenantId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("HomeId");
+
+                    b.HasIndex("MaintenanceStatusId");
 
                     b.HasIndex("TenantId");
 
@@ -147,6 +149,26 @@ namespace Cozy.Data.Migrations
                     b.ToTable("Tenants");
                 });
 
+            modelBuilder.Entity("MaintenanceStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MaintenanceStatuses");
+
+                    b.HasData(
+                        new { Id = 1, Description = "New" },
+                        new { Id = 2, Description = "In Progress" },
+                        new { Id = 3, Description = "Closed" },
+                        new { Id = 4, Description = "Cancelled" }
+                    );
+                });
+
             modelBuilder.Entity("Cozy.Domain.Models.Home", b =>
                 {
                     b.HasOne("Cozy.Domain.Models.Landlord", "Landlord")
@@ -171,6 +193,11 @@ namespace Cozy.Data.Migrations
                     b.HasOne("Cozy.Domain.Models.Home", "Home")
                         .WithMany()
                         .HasForeignKey("HomeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MaintenanceStatus", "MaintenanceStatus")
+                        .WithMany()
+                        .HasForeignKey("MaintenanceStatusId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Cozy.Domain.Models.Tenant", "Tenant")
