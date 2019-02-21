@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Cozy.Data.Implementation.EFCore
 {
-    class EFCoreLeaseRepository : ILeaseRepository
+    public class EFCoreLeaseRepository : ILeaseRepository
     {
         public Lease Create(Lease newLease)
         {

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Cozy.Data.Implementation.EFCore
 {
-    class EFCorePaymentRepository : IPaymentRepository
+    public class EFCorePaymentRepository : IPaymentRepository
     {
         public Payment Create(Payment newPayment)
         {
@@ -50,14 +50,6 @@ namespace Cozy.Data.Implementation.EFCore
             using (var context = new CozyDbContext())
             {
                 return context.Payments.Where(p => p.LeaseId == leaseId).ToList();
-            }
-        }
-
-        public ICollection<Payment> GetByTenantId(string tenantId)
-        {
-            using (var context = new CozyDbContext())
-            {
-                return context.Payments.Where(p => p.TenantId == tenantId).ToList();
             }
         }
 

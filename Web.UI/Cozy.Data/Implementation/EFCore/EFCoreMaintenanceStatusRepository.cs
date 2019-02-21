@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Cozy.Data.Implementation.EFCore
 {
-    class EFCoreMaintenanceStatusRepository : IMaintenanceStatusRepository
+    public class EFCoreMaintenanceStatusRepository : IMaintenanceStatusRepository
     {
         public ICollection<MaintenanceStatus> GetAll()
         {
@@ -23,7 +23,7 @@ namespace Cozy.Data.Implementation.EFCore
 
         public MaintenanceStatus GetById(int maintenanceStatusId)
         {
-            using (var context = new CozyDbContext)
+            using (var context = new CozyDbContext())
             {
                 return context.MaintenanceStatuses.Single(ms => ms.Id == maintenanceStatusId);
             }

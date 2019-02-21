@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cozy.Service.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.UI.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IHomeService _homeService;

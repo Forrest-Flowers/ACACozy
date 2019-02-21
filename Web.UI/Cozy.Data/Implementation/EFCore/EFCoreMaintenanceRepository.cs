@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Cozy.Data.Implementation.EFCore
 {
-    class EFCoreMaintenanceRepository : IMaintenanceRepository
+    public class EFCoreMaintenanceRepository : IMaintenanceRepository
     {
         public Maintenance Create(Maintenance newMaintenance)
         {

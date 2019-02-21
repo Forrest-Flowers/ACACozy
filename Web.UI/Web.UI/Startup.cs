@@ -1,7 +1,9 @@
 ﻿using System;
+using Cozy.Data.Context;
 using Cozy.Data.Implementation.EFCore;
 using Cozy.Data.Implementation.Mock;
 using Cozy.Data.Interfaces;
+using Cozy.Domain.Models;
 using Cozy.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,11 +19,15 @@ namespace Web.UI
         {
             //Repository Layer injection
 
-            GetDependencyResolvedForRepositoryLayer(services);
+            GetDependencyResolvedForEFCoreRepositoryLayer(services);
 
             //Service Layer injection
             GetDependencyResolvedForServiceLayer(services);
 
+            services.AddDbContext<CozyDbContext>();
+
+            services.AddDefaultIdentity<AppUser>()
+                .AddEntityFrameworkStores<CozyDbContext>();
 
             services.AddMvc();
         }
@@ -33,20 +39,25 @@ namespace Web.UI
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseStaticFiles();
+
+            app.UseAuthentication(); //Makes use of Identity
 
             app.UseMvcWithDefaultRoute();
             //Controller/view/?id
             //Default Controller: HomeController
             //Default View: Index
             //Home/Index/id
+
         }
 
-        private void GetDependencyResolvedForRepositoryLayer(IServiceCollection services)
+        private void GetDependencyResolvedForEFCoreRepositoryLayer(IServiceCollection services)
         {
-            services.AddScoped<IHomeRepository, MockHomeRepository>();
-            services.AddScoped<ILeaseRepository, MockLeaseRepository>();
+            services.AddScoped<IHomeRepository, EFCoreHomeRepository>();
+            services.AddScoped<ILeaseRepository, EFCoreLeaseRepository>();
+            services.AddScoped<IMaintenanceRepository, EFCoreMaintenanceRepository>();
+            services.AddScoped<IMaintenanceStatusRepository, EFCoreMaintenanceStatusRepository>();
+            services.AddScoped<IPaymentRepository, EFCorePaymentRepository>();
         }
 
         private void GetDependencyResolvedForServiceLayer(IServiceCollection services)
