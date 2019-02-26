@@ -5,7 +5,6 @@
     "\\Web.UI\\Cozy.Service",
     "\\Web.UI\\Cozy.Service\\Services",
     "\\Web.UI\\Web.UI",
-    "\\Web.UI\\Web.UI\\Controllers",
     "\\Web.UI\\Web.UI\\Views",
     "\\Web.UI\\Web.UI\\Views\\Home"
   ],

@@ -7,6 +7,7 @@ using Cozy.Domain.Models;
 using Cozy.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Web.UI
@@ -26,8 +27,14 @@ namespace Web.UI
 
             services.AddDbContext<CozyDbContext>();
 
-            services.AddDefaultIdentity<AppUser>()
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric.Equals(false);
+            }
+                )
                 .AddEntityFrameworkStores<CozyDbContext>();
+
+            //Homework is to how to set different rules for password.
 
             services.AddMvc();
         }
