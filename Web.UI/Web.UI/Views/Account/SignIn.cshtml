@@ -1,0 +1,29 @@
+﻿@model SignInViewModel
+
+
+
+<div class="text-center">
+
+    <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+
+    <form asp-action="SignIn" method="post" class="form-signin">
+        <div asp-validation-summary="All">
+
+            <label asp-for="Email" class="sr-only"></label>
+            <input asp-for="Email" class="form-control" />
+
+            <label asp-for="Password" class="sr-only"></label>
+            <input asp-for="Password" class="form-control" />
+
+            <div class=" checkbox mb-3">
+                <label>
+                    <input type="checkbox" asp-for="RememberMe" />
+                    Remember Me?
+                </label>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
+

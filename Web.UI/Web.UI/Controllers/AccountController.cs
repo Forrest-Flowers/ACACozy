@@ -17,7 +17,7 @@ namespace Web.UI.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly List<IdentityRole> _roles;
 
-        public AccountController(UserManager<AppUser> userManager, 
+        public AccountController(UserManager<AppUser> userManager,
             RoleManager<IdentityRole> roleManager,
             SignInManager<AppUser> signInManager)
         {
@@ -44,7 +44,7 @@ namespace Web.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel vm)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = new AppUser
                 {
@@ -54,17 +54,17 @@ namespace Web.UI.Controllers
 
                 var result = await _userManager.CreateAsync(user, vm.Password);
 
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
                     //apply roles to user
                     await _userManager.AddToRoleAsync(user, vm.Role);
-                    
+
                     await _signInManager.SignInAsync(user, true);
                     return RedirectToAction("Index", "Home"); //default to current controller
                 }
                 else
                 {
-                    foreach(var error in result.Errors)
+                    foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError(error.Code, error.Description);
                     }
@@ -73,6 +73,50 @@ namespace Web.UI.Controllers
             vm.Roles = new SelectList(_roles);
 
             return View(vm);
+        }
+        [HttpGet]
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SignIn(SignInViewModel vm)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(vm.Email, vm.Password, vm.RememberMe, false);
+
+                if (result.Succeeded)
+                {
+                    //get user
+                    var user = await _userManager.FindByEmailAsync(vm.Email);
+
+                    //Identify what role they have
+                    bool isLandlord = await _userManager.IsInRoleAsync(user, "Landlord");
+
+                    //redirect to right controller based on role.
+                    if (isLandlord)
+                    {
+                        return RedirectToAction("Index", "Landlord");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Tenant");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("SignIn", "Username or Password is incorrect.");
+                }
+            }
+            return View(vm);
+        }
+
+        public async Task<IActionResult> SignOut()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

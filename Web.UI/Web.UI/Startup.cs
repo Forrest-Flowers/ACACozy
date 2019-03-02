@@ -27,14 +27,24 @@ namespace Web.UI
 
             services.AddDbContext<CozyDbContext>();
 
-            services.AddIdentity<AppUser, IdentityRole>(options =>
-            {
-                options.Password.RequireNonAlphanumeric.Equals(false);
-            }
-                )
+            services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<CozyDbContext>();
 
-            //Homework is to how to set different rules for password.
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Account/Signin"; //overrides the default naming convention (Originally /Account/Login)
+                options.AccessDeniedPath = "/Account/Unauthorized";
+            });
+
+            services.Configure<IdentityOptions>(options =>
+               {
+                  options.Password.RequireDigit = true;
+                  options.Password.RequireLowercase = true;
+                  options.Password.RequireNonAlphanumeric = false;
+                  options.Password.RequireUppercase = false;
+                  options.Password.RequiredLength = 6;
+                  options.Password.RequiredUniqueChars = 1;
+                });
 
             services.AddMvc();
         }

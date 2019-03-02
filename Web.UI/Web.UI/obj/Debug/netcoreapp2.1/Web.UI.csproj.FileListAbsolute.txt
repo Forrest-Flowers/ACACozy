@@ -34,3 +34,5 @@ C:\Users\forre\Desktop\ACACozy\Web.UI\Web.UI\bin\Debug\netcoreapp2.1\Cozy.Servic
 C:\Users\forre\Desktop\ACACozy\Web.UI\Web.UI\bin\Debug\netcoreapp2.1\Cozy.Domain.pdb
 C:\Users\forre\Desktop\ACACozy\Web.UI\Web.UI\obj\Debug\netcoreapp2.1\Web.UI.Views.pdb
 C:\Users\forre\Desktop\ACACozy\Web.UI\Web.UI\obj\Debug\netcoreapp2.1\Web.UI.csproj.CopyComplete
+C:\Users\forre\Desktop\ACACozy\Web.UI\Web.UI\obj\Debug\netcoreapp2.1\Razor\Views\Account\SignIn.g.cshtml.cs
+C:\Users\forre\Desktop\ACACozy\Web.UI\Web.UI\obj\Debug\netcoreapp2.1\Razor\Views\Tenant\Index.g.cshtml.cs
