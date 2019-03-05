@@ -1,9 +1,0 @@
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\bin\Debug\netcoreapp2.1\Cozy.Domain.deps.json
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\bin\Debug\netcoreapp2.1\Cozy.Domain.dll
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\bin\Debug\netcoreapp2.1\Cozy.Domain.pdb
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\obj\Debug\netcoreapp2.1\Cozy.Domain.csproj.CoreCompileInputs.cache
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\obj\Debug\netcoreapp2.1\Cozy.Domain.AssemblyInfoInputs.cache
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\obj\Debug\netcoreapp2.1\Cozy.Domain.AssemblyInfo.cs
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\obj\Debug\netcoreapp2.1\Cozy.Domain.dll
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\obj\Debug\netcoreapp2.1\Cozy.Domain.pdb
-C:\Users\forre\Desktop\ACACozy\Web.UI\Cozy.Domain\obj\Debug\netcoreapp2.1\Cozy.Domain.csprojAssemblyReference.cache
